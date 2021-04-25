@@ -1,6 +1,6 @@
-import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/bloc/bloc.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/bloc/bloc.dart' show GetTriviaForConcreteNumber, GetTriviaForRandomNumber, NumberTriviaBloc;
+import 'package:flutter/material.dart' show BuildContext, ButtonTextTheme, Column, Expanded, InputDecoration, Key, OutlineInputBorder, RaisedButton, Row, SizedBox, State, StatefulWidget, Text, TextEditingController, TextField, TextInputType, Theme, Widget;
+import 'package:flutter_bloc/flutter_bloc.dart' show BlocProvider;
 
 class TriviaControls extends StatefulWidget {
   const TriviaControls({

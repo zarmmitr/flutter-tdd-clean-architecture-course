@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'features/number_trivia/presentation/pages/number_trivia_page.dart';
-import 'injection_container.dart' as di;
+import 'package:flutter/material.dart' show BuildContext, Colors, MaterialApp, StatelessWidget, ThemeData, Widget, WidgetsFlutterBinding, runApp;
+import 'features/number_trivia/presentation/pages/number_trivia_page.dart' show NumberTriviaPage;
+import 'package:clean_architecture_tdd_course/injection_container.dart' as di;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

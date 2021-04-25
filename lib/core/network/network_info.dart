@@ -1,6 +1,6 @@
-import 'package:data_connection_checker/data_connection_checker.dart';
+import 'package:data_connection_checker/data_connection_checker.dart' show DataConnectionChecker;
 
-abstract class NetworkInfo {
+abstract class NetworkInfo { // NetworkInfo -> Network, network -> /
   Future<bool> get isConnected;
 }
 

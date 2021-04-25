@@ -1,13 +1,13 @@
 import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
 
-import '../../../../core/error/failures.dart';
-import '../../../../core/error/exceptions.dart';
-import '../../../../core/network/network_info.dart';
-import '../../domain/entities/number_trivia.dart';
-import '../../domain/repositories/number_trivia_repository.dart';
-import '../datasources/number_trivia_local_data_source.dart';
-import '../datasources/number_trivia_remote_data_source.dart';
+import 'package:clean_architecture_tdd_course/core/error/failures.dart' show CacheFailure, Failure, ServerFailure;
+import 'package:clean_architecture_tdd_course/core/error/exceptions.dart' show CacheException, ServerException;
+import 'package:clean_architecture_tdd_course/core/network/network_info.dart' show NetworkInfo;
+import 'package:clean_architecture_tdd_course/features/number_trivia/domain/entities/number_trivia.dart' show NumberTrivia;
+import '../../domain/repositories/number_trivia_repository.dart' show NumberTriviaRepository;
+import '../datasources/number_trivia_local_data_source.dart' show NumberTriviaLocalDataSource;
+import '../datasources/number_trivia_remote_data_source.dart' show NumberTriviaRemoteDataSource;
 
 typedef Future<NumberTrivia> _ConcreteOrRandomChooser();
 

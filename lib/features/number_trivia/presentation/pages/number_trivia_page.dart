@@ -1,10 +1,10 @@
-import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/bloc/bloc.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/bloc/number_trivia_bloc.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/widgets/widgets.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/bloc/bloc.dart' show Empty, Error, Loaded, Loading, NumberTriviaBloc, NumberTriviaState;
+import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/bloc/number_trivia_bloc.dart' show NumberTriviaBloc;
+import 'package:clean_architecture_tdd_course/features/number_trivia/presentation/widgets/widgets.dart' show LoadingWidget, MessageDisplay, TriviaControls, TriviaDisplay;
+import 'package:flutter/material.dart' show AppBar, BuildContext, Center, Column, EdgeInsets, Padding, Scaffold, SingleChildScrollView, SizedBox, StatelessWidget, Text, Widget;
+import 'package:flutter_bloc/flutter_bloc.dart' show BlocBuilder, BlocProvider;
 
-import '../../../../injection_container.dart';
+import 'package:clean_architecture_tdd_course/injection_container.dart' show sl;
 
 class NumberTriviaPage extends StatelessWidget {
   @override

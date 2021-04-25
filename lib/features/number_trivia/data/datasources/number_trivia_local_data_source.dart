@@ -1,10 +1,10 @@
-import 'dart:convert';
+import 'dart:convert' show json;
 
-import 'package:clean_architecture_tdd_course/core/error/exceptions.dart';
-import 'package:meta/meta.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:clean_architecture_tdd_course/core/error/exceptions.dart' show CacheException;
+import 'package:meta/meta.dart' show required;
+import 'package:shared_preferences/shared_preferences.dart' show SharedPreferences;
 
-import '../models/number_trivia_model.dart';
+import 'package:clean_architecture_tdd_course/features/number_trivia/data/models/number_trivia_model.dart' show NumberTriviaModel;
 
 abstract class NumberTriviaLocalDataSource {
   /// Gets the cached [NumberTriviaModel] which was gotten the last time

@@ -1,4 +1,4 @@
-name: clean_architecture_tdd_course
+name: clean_architecture_tdd_course # TODO clean_architecture_tdd_course -> zapp
 description: TDD Clean Architecture for Flutter
 
 version: 1.0.0+1

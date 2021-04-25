@@ -1,7 +1,8 @@
-import 'package:dartz/dartz.dart';
-import 'package:equatable/equatable.dart';
+// TODO usecase -> use_case, usecases -> /
+import 'package:dartz/dartz.dart' show Either;
+import 'package:equatable/equatable.dart' show Equatable;
 
-import '../error/failures.dart';
+import 'package:clean_architecture_tdd_course/core/error/failures.dart' show Failure;
 
 abstract class UseCase<Type, Params> {
   Future<Either<Failure, Type>> call(Params params);

@@ -1,5 +1,5 @@
-import 'package:clean_architecture_tdd_course/core/error/failures.dart';
-import 'package:dartz/dartz.dart';
+import 'package:clean_architecture_tdd_course/core/error/failures.dart' show Failure;
+import 'package:dartz/dartz.dart' show Either, Left, Right;
 
 class InputConverter {
   Either<Failure, int> stringToUnsignedInteger(String str) {

@@ -1,5 +1,5 @@
-import 'package:clean_architecture_tdd_course/features/number_trivia/domain/entities/number_trivia.dart';
-import 'package:meta/meta.dart';
+import 'package:clean_architecture_tdd_course/features/number_trivia/domain/entities/number_trivia.dart' show NumberTrivia;
+import 'package:meta/meta.dart' show required;
 
 class NumberTriviaModel extends NumberTrivia {
   NumberTriviaModel({

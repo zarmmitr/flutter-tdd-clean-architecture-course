@@ -1,5 +1,5 @@
-import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
+import 'package:equatable/equatable.dart' show Equatable;
+import 'package:meta/meta.dart' show immutable;
 
 @immutable
 abstract class NumberTriviaEvent extends Equatable {

@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 
-import '../../../../core/error/exceptions.dart';
-import '../models/number_trivia_model.dart';
+import 'package:clean_architecture_tdd_course/core/error/exceptions.dart' show ServerException;
+import 'package:clean_architecture_tdd_course/features/number_trivia/data/models/number_trivia_model.dart' show NumberTriviaModel;
 
 abstract class NumberTriviaRemoteDataSource {
   /// Calls the http://numbersapi.com/{number} endpoint.

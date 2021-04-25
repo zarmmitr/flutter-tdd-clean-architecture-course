@@ -1,6 +1,6 @@
-import 'package:clean_architecture_tdd_course/features/number_trivia/domain/entities/number_trivia.dart';
-import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
+import 'package:clean_architecture_tdd_course/features/number_trivia/domain/entities/number_trivia.dart' show NumberTrivia;
+import 'package:equatable/equatable.dart' show Equatable;
+import 'package:meta/meta.dart' show immutable, required;
 
 @immutable
 abstract class NumberTriviaState extends Equatable {

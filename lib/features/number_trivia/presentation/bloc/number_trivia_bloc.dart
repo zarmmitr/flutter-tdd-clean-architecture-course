@@ -1,11 +1,11 @@
-import 'dart:async';
+import 'dart:async' show Stream;
 
-import 'package:bloc/bloc.dart';
-import 'package:clean_architecture_tdd_course/core/error/failures.dart';
-import 'package:clean_architecture_tdd_course/core/usecases/usecase.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/domain/entities/number_trivia.dart';
-import 'package:dartz/dartz.dart';
-import 'package:meta/meta.dart';
+import 'package:bloc/bloc.dart' show Bloc;
+import 'package:clean_architecture_tdd_course/core/error/failures.dart' show CacheFailure, Failure, ServerFailure;
+import 'package:clean_architecture_tdd_course/core/usecases/usecase.dart' show NoParams;
+import 'package:clean_architecture_tdd_course/features/number_trivia/domain/entities/number_trivia.dart' show NumberTrivia;
+import 'package:dartz/dartz.dart' show Either;
+import 'package:meta/meta.dart' show required;
 
 import './bloc.dart';
 import '../../../../core/util/input_converter.dart';
