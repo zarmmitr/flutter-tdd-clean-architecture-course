@@ -1,11 +1,11 @@
-import 'package:clean_architecture_tdd_course/core/error/exceptions.dart';
-import 'package:clean_architecture_tdd_course/core/error/failures.dart';
-import 'package:clean_architecture_tdd_course/core/network/network_info.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/data/datasources/number_trivia_local_data_source.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/data/datasources/number_trivia_remote_data_source.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/data/models/number_trivia_model.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/data/repositories/number_trivia_repository_impl.dart';
-import 'package:clean_architecture_tdd_course/features/number_trivia/domain/entities/number_trivia.dart';
+import 'package:z_/core/exceptions.dart';
+import 'package:z_/core/failures.dart';
+import 'package:z_/util/network.dart';
+import 'package:z_/number_trivia/data/datasources/number_trivia_local_data_source.dart';
+import 'package:z_/number_trivia/data/datasources/number_trivia_remote_data_source.dart';
+import 'package:z_/number_trivia/data/models/number_trivia_model.dart';
+import 'package:z_/number_trivia/data/repositories/number_trivia_repository_impl.dart';
+import 'package:z_/number_trivia/domain/entities/number_trivia.dart';
 import 'package:dartz/dartz.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -15,7 +15,7 @@ class MockRemoteDataSource extends Mock
 
 class MockLocalDataSource extends Mock implements NumberTriviaLocalDataSource {}
 
-class MockNetworkInfo extends Mock implements NetworkInfo {}
+class MockNetworkInfo extends Mock implements Network {}
 
 void main() {
   NumberTriviaRepositoryImpl repository;
@@ -30,7 +30,7 @@ void main() {
     repository = NumberTriviaRepositoryImpl(
       remoteDataSource: mockRemoteDataSource,
       localDataSource: mockLocalDataSource,
-      networkInfo: mockNetworkInfo,
+      network: mockNetworkInfo,
     );
   });
 
