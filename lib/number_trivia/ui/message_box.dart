@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart' show BuildContext, Center, Container, Key, MediaQuery, SingleChildScrollView, StatelessWidget, Text, TextAlign, TextStyle, Widget, required;
 
-class MessageDisplay extends StatelessWidget {
+class MessageBox extends StatelessWidget {
   final String message;
 
-  const MessageDisplay({
+  const MessageBox({
     Key key,
     @required this.message,
   }) : super(key: key);

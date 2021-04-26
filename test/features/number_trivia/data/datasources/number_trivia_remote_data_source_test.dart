@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:z_/core/exceptions.dart';
-import 'package:z_/number_trivia/data/datasources/number_trivia_remote_data_source.dart';
-import 'package:z_/number_trivia/data/models/number_trivia_model.dart';
+import 'package:z_/number_trivia/io/nt_remote_source.dart';
+import 'package:z_/number_trivia/io/nt_io.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:matcher/matcher.dart';
@@ -34,7 +34,7 @@ void main() {
   group('getConcreteNumberTrivia', () {
     final tNumber = 1;
     final tNumberTriviaModel =
-        NumberTriviaModel.fromJson(json.decode(fixture('trivia.json')));
+        NumberTriviaIn.fromJson(json.decode(fixture('trivia.json')));
 
     test(
       '''should perform a GET request on a URL with number
@@ -81,7 +81,7 @@ void main() {
 
   group('getRandomNumberTrivia', () {
     final tNumberTriviaModel =
-        NumberTriviaModel.fromJson(json.decode(fixture('trivia.json')));
+        NumberTriviaIn.fromJson(json.decode(fixture('trivia.json')));
 
     test(
       '''should perform a GET request on a URL with number

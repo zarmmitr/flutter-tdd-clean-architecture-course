@@ -2,11 +2,10 @@ import 'package:dartz/dartz.dart' show Either;
 
 import 'package:z_/core/failures.dart' show Failure;
 import 'package:z_/core/use_case.dart' show NoParams, UseCase;
-import 'package:z_/number_trivia/domain/entities/number_trivia.dart' show NumberTrivia;
-import 'package:z_/number_trivia/domain/repositories/number_trivia_repository.dart' show NumberTriviaRepository;
+import '../api/nt.dart' show NumberTrivia, NumberTriviaStore;
 
 class GetRandomNumberTrivia implements UseCase<NumberTrivia, NoParams> {
-  final NumberTriviaRepository repository;
+  final NumberTriviaStore repository;
 
   GetRandomNumberTrivia(this.repository);
 

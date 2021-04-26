@@ -1,10 +1,10 @@
-import 'package:z_/number_trivia/domain/entities/number_trivia.dart' show NumberTrivia;
+import '../api/nt.dart' show NumberTrivia;
 import 'package:flutter/material.dart' show BuildContext, Center, Column, Container, Expanded, FontWeight, Key, MediaQuery, SingleChildScrollView, StatelessWidget, Text, TextAlign, TextStyle, Widget, required;
 
-class TriviaDisplay extends StatelessWidget {
+class TriviaBox extends StatelessWidget {
   final NumberTrivia numberTrivia;
 
-  const TriviaDisplay({
+  const TriviaBox({
     Key key,
     @required this.numberTrivia,
   }) : super(key: key);

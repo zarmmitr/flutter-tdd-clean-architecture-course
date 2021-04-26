@@ -4,19 +4,19 @@ import 'package:meta/meta.dart';
 import 'package:z_/core/failures.dart' show CacheFailure, Failure, ServerFailure;
 import 'package:z_/core/exceptions.dart' show CacheException, ServerException;
 import 'package:z_/util/network.dart' show Network;
-import 'package:z_/number_trivia/domain/entities/number_trivia.dart' show NumberTrivia;
-import '../../domain/repositories/number_trivia_repository.dart' show NumberTriviaRepository;
-import '../datasources/number_trivia_local_data_source.dart' show NumberTriviaLocalDataSource;
-import '../datasources/number_trivia_remote_data_source.dart' show NumberTriviaRemoteDataSource;
+import '../api/nt.dart' show NumberTrivia;
+import '../api/nt.dart' show NumberTriviaStore;
+import 'nt_local_source.dart' show NumberTriviaLocalSource;
+import 'nt_remote_source.dart' show NumberTriviaRemoteDataSource;
 
 typedef Future<NumberTrivia> _ConcreteOrRandomChooser();
 
-class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
+class NumberTriviaStoreImpl implements NumberTriviaStore {
   final NumberTriviaRemoteDataSource remoteDataSource;
-  final NumberTriviaLocalDataSource localDataSource;
+  final NumberTriviaLocalSource localDataSource;
   final Network network;
 
-  NumberTriviaRepositoryImpl({
+  NumberTriviaStoreImpl({
     @required this.remoteDataSource,
     @required this.localDataSource,
     @required this.network,
@@ -24,8 +24,8 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
 
   @override
   Future<Either<Failure, NumberTrivia>> getConcreteNumberTrivia(
-    int number,
-  ) async {
+      int number,
+      ) async {
     return await _getTrivia(() {
       return remoteDataSource.getConcreteNumberTrivia(number);
     });
@@ -39,8 +39,8 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
   }
 
   Future<Either<Failure, NumberTrivia>> _getTrivia(
-    _ConcreteOrRandomChooser getConcreteOrRandom,
-  ) async {
+      _ConcreteOrRandomChooser getConcreteOrRandom,
+      ) async {
     if (await network.isConnected) {
       try {
         final remoteTrivia = await getConcreteOrRandom();

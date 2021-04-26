@@ -1,13 +1,13 @@
 import 'dart:convert';
 
-import 'package:z_/number_trivia/data/models/number_trivia_model.dart';
-import 'package:z_/number_trivia/domain/entities/number_trivia.dart';
+import 'package:z_/number_trivia/io/nt_io.dart';
+import 'package:z_/number_trivia/api/nt.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
 
 void main() {
-  final tNumberTriviaModel = NumberTriviaModel(number: 1, text: 'Test Text');
+  final tNumberTriviaModel = NumberTriviaIn(number: 1, text: 'Test Text');
 
   test(
     'should be a subclass of NumberTrivia entity',
@@ -25,7 +25,7 @@ void main() {
         final Map<String, dynamic> jsonMap =
             json.decode(fixture('trivia.json'));
         // act
-        final result = NumberTriviaModel.fromJson(jsonMap);
+        final result = NumberTriviaIn.fromJson(jsonMap);
         // assert
         expect(result, tNumberTriviaModel);
       },
@@ -38,7 +38,7 @@ void main() {
         final Map<String, dynamic> jsonMap =
             json.decode(fixture('trivia_double.json'));
         // act
-        final result = NumberTriviaModel.fromJson(jsonMap);
+        final result = NumberTriviaIn.fromJson(jsonMap);
         // assert
         expect(result, tNumberTriviaModel);
       },

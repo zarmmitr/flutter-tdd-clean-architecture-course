@@ -1,6 +1,5 @@
-import 'package:z_/number_trivia/presentation/bloc/bloc.dart' show Empty, Error, Loaded, Loading, NumberTriviaBloc, NumberTriviaState;
-import 'package:z_/number_trivia/presentation/bloc/number_trivia_bloc.dart' show NumberTriviaBloc;
-import 'package:z_/number_trivia/presentation/widgets/widgets.dart' show LoadingWidget, MessageDisplay, TriviaControls, TriviaDisplay;
+import 'ploc/nt_ploc.dart' show Empty, Error, Loaded, Loading, NumberTriviaBloc, NumberTriviaState;
+import 'ui/nt_ui.dart' show LoadingBox, MessageBox, TriviaControl, TriviaBox;
 import 'package:flutter/material.dart' show AppBar, BuildContext, Center, Column, EdgeInsets, Padding, Scaffold, SingleChildScrollView, SizedBox, StatelessWidget, Text, Widget;
 import 'package:flutter_bloc/flutter_bloc.dart' show BlocBuilder, BlocProvider;
 
@@ -32,15 +31,15 @@ class NumberTriviaPage extends StatelessWidget {
               BlocBuilder<NumberTriviaBloc, NumberTriviaState>(
                 builder: (context, state) {
                   if (state is Empty) {
-                    return MessageDisplay(
+                    return MessageBox(
                       message: 'Start searching!',
                     );
                   } else if (state is Loading) {
-                    return LoadingWidget();
+                    return LoadingBox();
                   } else if (state is Loaded) {
-                    return TriviaDisplay(numberTrivia: state.trivia);
+                    return TriviaBox(numberTrivia: state.trivia);
                   } else if (state is Error) {
-                    return MessageDisplay(
+                    return MessageBox(
                       message: state.message,
                     );
                   }
@@ -48,7 +47,7 @@ class NumberTriviaPage extends StatelessWidget {
               ),
               SizedBox(height: 20),
               // Bottom half
-              TriviaControls()
+              TriviaControl()
             ],
           ),
         ),

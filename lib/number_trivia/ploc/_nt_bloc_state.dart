@@ -1,4 +1,4 @@
-import 'package:z_/number_trivia/domain/entities/number_trivia.dart' show NumberTrivia;
+import '../api/nt.dart' show NumberTrivia;
 import 'package:equatable/equatable.dart' show Equatable;
 import 'package:meta/meta.dart' show immutable, required;
 

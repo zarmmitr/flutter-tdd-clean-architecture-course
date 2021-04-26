@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart' show BuildContext, Center, CircularProgressIndicator, Container, Key, MediaQuery, StatelessWidget, Widget;
 
-class LoadingWidget extends StatelessWidget {
-  const LoadingWidget({
+class LoadingBox extends StatelessWidget {
+  const LoadingBox({
     Key key,
   }) : super(key: key);
 

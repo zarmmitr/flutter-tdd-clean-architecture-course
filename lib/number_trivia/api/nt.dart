@@ -1,5 +1,7 @@
+import 'package:dartz/dartz.dart' show Either;
 import 'package:equatable/equatable.dart' show Equatable;
 import 'package:meta/meta.dart' show required;
+import 'package:z_/core/failures.dart' show Failure;
 
 class NumberTrivia extends Equatable {
   final String text;
@@ -12,4 +14,9 @@ class NumberTrivia extends Equatable {
 
   @override
   List<Object> get props => [text, number];
+}
+
+abstract class NumberTriviaStore {
+  Future<Either<Failure, NumberTrivia>> getConcreteNumberTrivia(int number);
+  Future<Either<Failure, NumberTrivia>> getRandomNumberTrivia();
 }

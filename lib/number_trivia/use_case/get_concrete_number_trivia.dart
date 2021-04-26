@@ -4,11 +4,10 @@ import 'package:meta/meta.dart' show required;
 
 import 'package:z_/core/failures.dart' show Failure;
 import 'package:z_/core/use_case.dart' show UseCase;
-import 'package:z_/number_trivia/domain/entities/number_trivia.dart' show NumberTrivia;
-import 'package:z_/number_trivia/domain/repositories/number_trivia_repository.dart' show NumberTriviaRepository;
+import '../api/nt.dart' show NumberTrivia, NumberTriviaStore;
 
 class GetConcreteNumberTrivia implements UseCase<NumberTrivia, Params> {
-  final NumberTriviaRepository repository;
+  final NumberTriviaStore repository;
 
   GetConcreteNumberTrivia(this.repository);
 
@@ -18,7 +17,7 @@ class GetConcreteNumberTrivia implements UseCase<NumberTrivia, Params> {
   }
 }
 
-class Params extends Equatable {
+class Params extends Equatable { // TODO Params -> Input
   final int number;
 
   Params({@required this.number});

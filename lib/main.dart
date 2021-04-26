@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart' show BuildContext, Colors, MaterialApp, StatelessWidget, ThemeData, Widget, WidgetsFlutterBinding, runApp;
-import 'package:z_/number_trivia/presentation/pages/number_trivia_page.dart' show NumberTriviaPage;
+import 'package:z_/number_trivia/nt_page.dart' show NumberTriviaPage;
 import 'package:z_/injection_container.dart' as di; // TODO di -> dependency injector?
 
 void main() async {
