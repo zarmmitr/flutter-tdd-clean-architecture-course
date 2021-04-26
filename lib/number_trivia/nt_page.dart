@@ -1,4 +1,4 @@
-import 'ploc/nt_ploc.dart' show Empty, Error, Loaded, Loading, NumberTriviaBloc, NumberTriviaState;
+import 'pl/nt_pl.dart' show Empty, Error, Loaded, Loading, NumberTriviaBloc, NumberTriviaState;
 import 'ui/nt_ui.dart' show LoadingBox, MessageBox, TriviaControl, TriviaBox;
 import 'package:flutter/material.dart' show AppBar, BuildContext, Center, Column, EdgeInsets, Padding, Scaffold, SingleChildScrollView, SizedBox, StatelessWidget, Text, Widget;
 import 'package:flutter_bloc/flutter_bloc.dart' show BlocBuilder, BlocProvider;

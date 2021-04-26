@@ -2,15 +2,15 @@ import 'dart:async' show Stream;
 
 import 'package:bloc/bloc.dart' show Bloc;
 import 'package:z_/core/failures.dart' show CacheFailure, Failure, ServerFailure;
-import 'package:z_/core/use_case.dart' show NoParams;
+import 'package:z_/core/uc.dart' show NoParams;
 import '../api/nt.dart' show NumberTrivia;
 import 'package:dartz/dartz.dart' show Either;
 import 'package:meta/meta.dart' show required;
 
-import 'nt_ploc.dart';
+import 'nt_pl.dart';
 import 'package:z_/util/input_converter.dart';
-import 'package:z_/number_trivia/use_case/get_concrete_number_trivia.dart';
-import 'package:z_/number_trivia/use_case/get_random_number_trivia.dart';
+import 'package:z_/number_trivia/uc/get_concrete_number_trivia.dart';
+import 'package:z_/number_trivia/uc/get_random_number_trivia.dart';
 
 const String SERVER_FAILURE_MESSAGE = 'Server Failure';
 const String CACHE_FAILURE_MESSAGE = 'Cache Failure';

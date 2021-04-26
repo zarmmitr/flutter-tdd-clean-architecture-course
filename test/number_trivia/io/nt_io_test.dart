@@ -4,7 +4,7 @@ import 'package:z_/number_trivia/io/nt_io.dart';
 import 'package:z_/number_trivia/api/nt.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../../fixtures/fixture_reader.dart';
+import '../../fixture/fixture_reader.dart';
 
 void main() {
   final tNumberTriviaModel = NumberTriviaIn(number: 1, text: 'Test Text');

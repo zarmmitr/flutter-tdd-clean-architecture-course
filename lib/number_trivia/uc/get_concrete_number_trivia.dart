@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart' show Equatable;
 import 'package:meta/meta.dart' show required;
 
 import 'package:z_/core/failures.dart' show Failure;
-import 'package:z_/core/use_case.dart' show UseCase;
+import 'package:z_/core/uc.dart' show UseCase;
 import '../api/nt.dart' show NumberTrivia, NumberTriviaStore;
 
 class GetConcreteNumberTrivia implements UseCase<NumberTrivia, Params> {

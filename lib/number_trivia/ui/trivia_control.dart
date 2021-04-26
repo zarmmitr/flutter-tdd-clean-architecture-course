@@ -1,4 +1,4 @@
-import 'package:z_/number_trivia/ploc/nt_ploc.dart' show GetTriviaForConcreteNumber, GetTriviaForRandomNumber, NumberTriviaBloc;
+import 'package:z_/number_trivia/pl/nt_pl.dart' show GetTriviaForConcreteNumber, GetTriviaForRandomNumber, NumberTriviaBloc;
 import 'package:flutter/material.dart' show BuildContext, ButtonTextTheme, Column, Expanded, InputDecoration, Key, OutlineInputBorder, RaisedButton, Row, SizedBox, State, StatefulWidget, Text, TextEditingController, TextField, TextInputType, Theme, Widget;
 import 'package:flutter_bloc/flutter_bloc.dart' show BlocProvider;
 
