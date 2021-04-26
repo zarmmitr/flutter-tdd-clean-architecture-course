@@ -1,21 +1,21 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:meta/meta.dart';
-
+import 'package:meta/meta.dart' show required;
 import 'package:z_/core/exceptions.dart' show ServerException;
-import 'nt_io.dart' show NumberTriviaIn;
+
+import 'nt_io.dart' show NumberTriviaModel;
 
 abstract class NumberTriviaRemoteDataSource {
   /// Calls the http://numbersapi.com/{number} endpoint.
   ///
   /// Throws a [ServerException] for all error codes.
-  Future<NumberTriviaIn> getConcreteNumberTrivia(int number);
+  Future<NumberTriviaModel> getConcreteNumberTrivia(int number);
 
   /// Calls the http://numbersapi.com/random endpoint.
   ///
   /// Throws a [ServerException] for all error codes.
-  Future<NumberTriviaIn> getRandomNumberTrivia();
+  Future<NumberTriviaModel> getRandomNumberTrivia();
 }
 
 class NumberTriviaRemoteDataSourceImpl implements NumberTriviaRemoteDataSource {
@@ -24,14 +24,14 @@ class NumberTriviaRemoteDataSourceImpl implements NumberTriviaRemoteDataSource {
   NumberTriviaRemoteDataSourceImpl({@required this.client});
 
   @override
-  Future<NumberTriviaIn> getConcreteNumberTrivia(int number) =>
+  Future<NumberTriviaModel> getConcreteNumberTrivia(int number) =>
       _getTriviaFromUrl('http://numbersapi.com/$number');
 
   @override
-  Future<NumberTriviaIn> getRandomNumberTrivia() =>
+  Future<NumberTriviaModel> getRandomNumberTrivia() =>
       _getTriviaFromUrl('http://numbersapi.com/random');
 
-  Future<NumberTriviaIn> _getTriviaFromUrl(String url) async {
+  Future<NumberTriviaModel> _getTriviaFromUrl(String url) async {
     final response = await client.get(
       url,
       headers: {
@@ -40,7 +40,7 @@ class NumberTriviaRemoteDataSourceImpl implements NumberTriviaRemoteDataSource {
     );
 
     if (response.statusCode == 200) {
-      return NumberTriviaIn.fromJson(json.decode(response.body));
+      return NumberTriviaModel.fromJson(json.decode(response.body));
     } else {
       throw ServerException();
     }

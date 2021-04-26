@@ -1,14 +1,14 @@
 import 'package:z_/number_trivia/api/nt.dart' show NumberTrivia;
 import 'package:meta/meta.dart' show required;
 
-class NumberTriviaIn extends NumberTrivia {
-  NumberTriviaIn({
+class NumberTriviaModel extends NumberTrivia {
+  NumberTriviaModel({
     @required String text,
     @required int number,
   }) : super(text: text, number: number);
 
-  factory NumberTriviaIn.fromJson(Map<String, dynamic> json) {
-    return NumberTriviaIn(
+  factory NumberTriviaModel.fromJson(Map<String, dynamic> json) {
+    return NumberTriviaModel(
       text: json['text'],
       number: (json['number'] as num).toInt(),
     );

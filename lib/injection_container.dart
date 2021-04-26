@@ -7,7 +7,7 @@ import 'package:z_/util/network.dart' show Network, NetworkImpl;
 import 'package:z_/util/input_converter.dart' show InputConverter;
 import 'package:z_/number_trivia/io/nt_local_source.dart' show NumberTriviaLocalSource, NumberTriviaLocalDataSourceImpl;
 import 'package:z_/number_trivia/io/nt_remote_source.dart' show NumberTriviaRemoteDataSource, NumberTriviaRemoteDataSourceImpl;
-import 'package:z_/number_trivia/io/nt_stores_impl.dart' show NumberTriviaStoreImpl;
+import 'package:z_/number_trivia/io/nt_store.dart' show NumberTriviaStoreImpl;
 import 'package:z_/number_trivia/api/nt.dart' show NumberTriviaStore;
 import 'package:z_/number_trivia/uc/get_concrete_number_trivia.dart' show GetConcreteNumberTrivia;
 import 'package:z_/number_trivia/uc/get_random_number_trivia.dart' show GetRandomNumberTrivia;
@@ -30,7 +30,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => GetConcreteNumberTrivia(sl()));
   sl.registerLazySingleton(() => GetRandomNumberTrivia(sl()));
 
-  // Repository
+  // Store
   sl.registerLazySingleton<NumberTriviaStore>(
     () => NumberTriviaStoreImpl(
       localDataSource: sl(),

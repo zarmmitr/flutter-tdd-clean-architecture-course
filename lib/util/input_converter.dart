@@ -1,16 +1,14 @@
-import 'package:z_/core/failures.dart' show Failure;
 import 'package:dartz/dartz.dart' show Either, Left, Right;
 
 class InputConverter {
-  Either<Failure, int> stringToUnsignedInteger(String str) {
+  Either<Exception, int> stringToUnsignedInteger(String text) {
     try {
-      final integer = int.parse(str);
-      if (integer < 0) throw FormatException();
+      final integer = int.parse(text);
+      if (integer < 0)
+        throw FormatException("$integer ($text) must not < 0");
       return Right(integer);
-    } on FormatException {
-      return Left(InvalidInputFailure());
+    } on FormatException catch(e) {
+      return Left(e);
     }
   }
 }
-
-class InvalidInputFailure extends Failure {}

@@ -25,7 +25,7 @@ void main() {
 
   group('getLastNumberTrivia', () {
     final tNumberTriviaModel =
-        NumberTriviaIn.fromJson(json.decode(fixture('trivia_cached.json')));
+        NumberTriviaModel.fromJson(json.decode(fixture('trivia_cached.json')));
 
     test(
       'should return NumberTrivia from SharedPreferences when there is one in the cache',
@@ -56,7 +56,7 @@ void main() {
 
   group('cacheNumberTrivia', () {
     final tNumberTriviaModel =
-        NumberTriviaIn(number: 1, text: 'test trivia');
+        NumberTriviaModel(number: 1, text: 'test trivia');
 
     test(
       'should call SharedPreferences to cache the data',

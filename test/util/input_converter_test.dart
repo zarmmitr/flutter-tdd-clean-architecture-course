@@ -30,7 +30,7 @@ void main() {
         // act
         final result = inputConverter.stringToUnsignedInteger(str);
         // assert
-        expect(result, Left(InvalidInputFailure()));
+        result.leftMap((e) => expect(e, isA<FormatException>()));
       },
     );
 
@@ -42,7 +42,7 @@ void main() {
         // act
         final result = inputConverter.stringToUnsignedInteger(str);
         // assert
-        expect(result, Left(InvalidInputFailure()));
+        result.leftMap((e) => expect(e, isA<FormatException>()));
       },
     );
   });

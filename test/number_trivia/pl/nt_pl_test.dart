@@ -1,5 +1,4 @@
-import 'package:z_/core/failures.dart';
-import 'package:z_/core/uc.dart';
+import 'package:z_/core/exceptions.dart';
 import 'package:z_/number_trivia/pl/nt_pl.dart';
 import 'package:z_/util/input_converter.dart';
 import 'package:z_/number_trivia/api/nt.dart';
@@ -66,7 +65,7 @@ void main() {
       () async {
         // arrange
         when(mockInputConverter.stringToUnsignedInteger(any))
-            .thenReturn(Left(InvalidInputFailure()));
+            .thenReturn(Left(FormatException()));
         // assert later
         final expected = [
           Empty(),
@@ -89,7 +88,7 @@ void main() {
         bloc.add(GetTriviaForConcreteNumber(tNumberString));
         await untilCalled(mockGetConcreteNumberTrivia(any));
         // assert
-        verify(mockGetConcreteNumberTrivia(Params(number: tNumberParsed)));
+        verify(mockGetConcreteNumberTrivia(tNumberParsed));
       },
     );
 
@@ -118,7 +117,7 @@ void main() {
         // arrange
         setUpMockInputConverterSuccess();
         when(mockGetConcreteNumberTrivia(any))
-            .thenAnswer((_) async => Left(ServerFailure()));
+            .thenAnswer((_) async => Left(ServerException()));
         // assert later
         final expected = [
           Empty(),
@@ -137,7 +136,7 @@ void main() {
         // arrange
         setUpMockInputConverterSuccess();
         when(mockGetConcreteNumberTrivia(any))
-            .thenAnswer((_) async => Left(CacheFailure()));
+            .thenAnswer((_) async => Left(CacheException()));
         // assert later
         final expected = [
           Empty(),
@@ -164,7 +163,7 @@ void main() {
         bloc.add(GetTriviaForRandomNumber());
         await untilCalled(mockGetRandomNumberTrivia(any));
         // assert
-        verify(mockGetRandomNumberTrivia(NoParams()));
+        verify(mockGetRandomNumberTrivia(null));
       },
     );
 
@@ -191,7 +190,7 @@ void main() {
       () async {
         // arrange
         when(mockGetRandomNumberTrivia(any))
-            .thenAnswer((_) async => Left(ServerFailure()));
+            .thenAnswer((_) async => Left(ServerException()));
         // assert later
         final expected = [
           Empty(),
@@ -209,7 +208,7 @@ void main() {
       () async {
         // arrange
         when(mockGetRandomNumberTrivia(any))
-            .thenAnswer((_) async => Left(CacheFailure()));
+            .thenAnswer((_) async => Left(CacheException()));
         // assert later
         final expected = [
           Empty(),

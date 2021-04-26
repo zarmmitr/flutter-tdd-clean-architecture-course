@@ -1,4 +1,3 @@
-import 'package:z_/core/uc.dart';
 import 'package:z_/number_trivia/api/nt.dart';
 import 'package:z_/number_trivia/uc/get_random_number_trivia.dart';
 import 'package:dartz/dartz.dart';
@@ -26,7 +25,7 @@ void main() {
       when(mockNumberTriviaRepository.getRandomNumberTrivia())
           .thenAnswer((_) async => Right(tNumberTrivia));
       // act
-      final result = await usecase(NoParams());
+      final result = await usecase(null);
       // assert
       expect(result, Right(tNumberTrivia));
       verify(mockNumberTriviaRepository.getRandomNumberTrivia());

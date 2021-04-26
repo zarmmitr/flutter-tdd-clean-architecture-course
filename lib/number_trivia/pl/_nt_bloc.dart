@@ -1,8 +1,7 @@
 import 'dart:async' show Stream;
 
 import 'package:bloc/bloc.dart' show Bloc;
-import 'package:z_/core/failures.dart' show CacheFailure, Failure, ServerFailure;
-import 'package:z_/core/uc.dart' show NoParams;
+import 'package:z_/core/exceptions.dart' show CacheException, ServerException;
 import '../api/nt.dart' show NumberTrivia;
 import 'package:dartz/dartz.dart' show Either;
 import 'package:meta/meta.dart' show required;
@@ -50,31 +49,31 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
         (integer) async* {
           yield Loading();
           final failureOrTrivia =
-              await getConcreteNumberTrivia(Params(number: integer));
+              await getConcreteNumberTrivia(integer);
           yield* _eitherLoadedOrErrorState(failureOrTrivia);
         },
       );
     } else if (event is GetTriviaForRandomNumber) {
       yield Loading();
-      final failureOrTrivia = await getRandomNumberTrivia(NoParams());
+      final failureOrTrivia = await getRandomNumberTrivia(null);
       yield* _eitherLoadedOrErrorState(failureOrTrivia);
     }
   }
 
   Stream<NumberTriviaState> _eitherLoadedOrErrorState(
-    Either<Failure, NumberTrivia> failureOrTrivia,
+    Either<Exception, NumberTrivia> failureOrTrivia,
   ) async* {
     yield failureOrTrivia.fold(
-      (failure) => Error(message: _mapFailureToMessage(failure)),
+      (exception) => Error(message: _mapExceptionToMessage(exception)),
       (trivia) => Loaded(trivia: trivia),
     );
   }
 
-  String _mapFailureToMessage(Failure failure) {
-    switch (failure.runtimeType) {
-      case ServerFailure:
+  String _mapExceptionToMessage(Exception exception) {
+    switch (exception.runtimeType) {
+      case ServerException:
         return SERVER_FAILURE_MESSAGE;
-      case CacheFailure:
+      case CacheException:
         return CACHE_FAILURE_MESSAGE;
       default:
         return 'Unexpected error';

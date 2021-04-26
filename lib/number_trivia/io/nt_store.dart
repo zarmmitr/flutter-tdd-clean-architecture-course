@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
 
-import 'package:z_/core/failures.dart' show CacheFailure, Failure, ServerFailure;
 import 'package:z_/core/exceptions.dart' show CacheException, ServerException;
 import 'package:z_/util/network.dart' show Network;
 import '../api/nt.dart' show NumberTrivia;
@@ -23,7 +22,7 @@ class NumberTriviaStoreImpl implements NumberTriviaStore {
   });
 
   @override
-  Future<Either<Failure, NumberTrivia>> getConcreteNumberTrivia(
+  Future<Either<Exception, NumberTrivia>> getConcreteNumberTrivia(
       int number,
       ) async {
     return await _getTrivia(() {
@@ -32,13 +31,13 @@ class NumberTriviaStoreImpl implements NumberTriviaStore {
   }
 
   @override
-  Future<Either<Failure, NumberTrivia>> getRandomNumberTrivia() async {
+  Future<Either<Exception, NumberTrivia>> getRandomNumberTrivia() async {
     return await _getTrivia(() {
       return remoteDataSource.getRandomNumberTrivia();
     });
   }
 
-  Future<Either<Failure, NumberTrivia>> _getTrivia(
+  Future<Either<Exception, NumberTrivia>> _getTrivia(
       _ConcreteOrRandomChooser getConcreteOrRandom,
       ) async {
     if (await network.isConnected) {
@@ -46,15 +45,15 @@ class NumberTriviaStoreImpl implements NumberTriviaStore {
         final remoteTrivia = await getConcreteOrRandom();
         localDataSource.cacheNumberTrivia(remoteTrivia);
         return Right(remoteTrivia);
-      } on ServerException {
-        return Left(ServerFailure());
+      } on ServerException catch(e) {
+        return Left(e);
       }
     } else {
       try {
         final localTrivia = await localDataSource.getLastNumberTrivia();
         return Right(localTrivia);
-      } on CacheException {
-        return Left(CacheFailure());
+      } on CacheException catch(e) {
+        return Left(e);
       }
     }
   }

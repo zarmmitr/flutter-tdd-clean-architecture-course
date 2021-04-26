@@ -1,16 +1,15 @@
 import 'package:dartz/dartz.dart' show Either;
 
-import 'package:z_/core/failures.dart' show Failure;
-import 'package:z_/core/uc.dart' show NoParams, UseCase;
+import 'package:z_/core/uc.dart' show UseCase;
 import '../api/nt.dart' show NumberTrivia, NumberTriviaStore;
 
-class GetRandomNumberTrivia implements UseCase<NumberTrivia, NoParams> {
+class GetRandomNumberTrivia implements UseCase<NumberTrivia, void> {
   final NumberTriviaStore repository;
 
   GetRandomNumberTrivia(this.repository);
 
   @override
-  Future<Either<Failure, NumberTrivia>> call(NoParams params) async {
+  Future<Either<Exception, NumberTrivia>> call(void _) async {
     return await repository.getRandomNumberTrivia();
   }
 }

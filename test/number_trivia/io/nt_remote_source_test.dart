@@ -34,7 +34,7 @@ void main() {
   group('getConcreteNumberTrivia', () {
     final tNumber = 1;
     final tNumberTriviaModel =
-        NumberTriviaIn.fromJson(json.decode(fixture('trivia.json')));
+        NumberTriviaModel.fromJson(json.decode(fixture('trivia.json')));
 
     test(
       '''should perform a GET request on a URL with number
@@ -81,7 +81,7 @@ void main() {
 
   group('getRandomNumberTrivia', () {
     final tNumberTriviaModel =
-        NumberTriviaIn.fromJson(json.decode(fixture('trivia.json')));
+        NumberTriviaModel.fromJson(json.decode(fixture('trivia.json')));
 
     test(
       '''should perform a GET request on a URL with number
