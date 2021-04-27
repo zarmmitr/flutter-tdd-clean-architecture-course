@@ -1,15 +1,15 @@
 import 'dart:async' show Stream;
 
 import 'package:bloc/bloc.dart' show Bloc;
-import 'package:z_/core/exceptions.dart' show CacheException, ServerException;
+import 'package:z_/core/exception.dart' show CacheException, ServerException;
 import '../api/nt.dart' show NumberTrivia;
 import 'package:dartz/dartz.dart' show Either;
 import 'package:meta/meta.dart' show required;
 
 import 'nt_pl.dart';
 import 'package:z_/util/input_converter.dart';
-import 'package:z_/number_trivia/uc/get_concrete_number_trivia.dart';
-import 'package:z_/number_trivia/uc/get_random_number_trivia.dart';
+import 'package:z_/number_trivia/act/get_concrete_number_trivia.dart';
+import 'package:z_/number_trivia/act/get_random_number_trivia.dart';
 
 const String SERVER_FAILURE_MESSAGE = 'Server Failure';
 const String CACHE_FAILURE_MESSAGE = 'Cache Failure';
@@ -48,8 +48,7 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
         },
         (integer) async* {
           yield Loading();
-          final failureOrTrivia =
-              await getConcreteNumberTrivia(integer);
+          final failureOrTrivia = await getConcreteNumberTrivia(integer);
           yield* _eitherLoadedOrErrorState(failureOrTrivia);
         },
       );

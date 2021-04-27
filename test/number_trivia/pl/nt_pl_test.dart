@@ -1,9 +1,9 @@
-import 'package:z_/core/exceptions.dart';
+import 'package:z_/core/exception.dart';
 import 'package:z_/number_trivia/pl/nt_pl.dart';
 import 'package:z_/util/input_converter.dart';
 import 'package:z_/number_trivia/api/nt.dart';
-import 'package:z_/number_trivia/uc/get_concrete_number_trivia.dart';
-import 'package:z_/number_trivia/uc/get_random_number_trivia.dart';
+import 'package:z_/number_trivia/act/get_concrete_number_trivia.dart';
+import 'package:z_/number_trivia/act/get_random_number_trivia.dart';
 import 'package:dartz/dartz.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';

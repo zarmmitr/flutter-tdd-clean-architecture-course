@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:z_/core/exceptions.dart';
+import 'package:z_/core/exception.dart';
 import 'package:z_/number_trivia/io/nt_remote_source.dart';
 import 'package:z_/number_trivia/io/nt_io.dart';
 import 'package:mockito/mockito.dart';

@@ -1,9 +1,10 @@
 import 'dart:convert' show json;
 
-import 'package:z_/core/exceptions.dart';
-import 'package:z_/core/exceptions.dart' show CacheException;
+import 'package:z_/core/exception.dart';
+import 'package:z_/core/exception.dart' show CacheException;
 import 'package:meta/meta.dart' show required;
-import 'package:shared_preferences/shared_preferences.dart' show SharedPreferences;
+import 'package:shared_preferences/shared_preferences.dart'
+    show SharedPreferences;
 
 import 'nt_io.dart' show NumberTriviaModel;
 

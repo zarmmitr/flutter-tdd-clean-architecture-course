@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart' show Either;
 
-import 'package:z_/core/uc.dart' show UseCase;
+import 'package:z_/core/act.dart' show Act;
 import '../api/nt.dart' show NumberTrivia, NumberTriviaStore;
 
-class GetConcreteNumberTrivia implements UseCase<NumberTrivia, int> {
+class GetConcreteNumberTrivia implements Act<NumberTrivia, int> {
   final NumberTriviaStore store;
 
   GetConcreteNumberTrivia(this.store);
@@ -13,4 +13,3 @@ class GetConcreteNumberTrivia implements UseCase<NumberTrivia, int> {
     return await store.getConcreteNumberTrivia(number);
   }
 }
-

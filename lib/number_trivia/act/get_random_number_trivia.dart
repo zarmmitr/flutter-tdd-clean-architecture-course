@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart' show Either;
 
-import 'package:z_/core/uc.dart' show UseCase;
+import 'package:z_/core/act.dart' show Act;
 import '../api/nt.dart' show NumberTrivia, NumberTriviaStore;
 
-class GetRandomNumberTrivia implements UseCase<NumberTrivia, void> {
+class GetRandomNumberTrivia implements Act<NumberTrivia, void> {
   final NumberTriviaStore repository;
 
   GetRandomNumberTrivia(this.repository);

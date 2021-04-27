@@ -1,11 +1,8 @@
-import 'package:equatable/equatable.dart' show Equatable;
 import 'package:meta/meta.dart' show immutable;
+import 'package:z_/core/part.dart' show NoProps;
 
 @immutable
-abstract class NumberTriviaEvent extends Equatable {
-  @override
-  List<Object> get props => [];
-}
+abstract class NumberTriviaEvent extends NoProps {}
 
 class GetTriviaForConcreteNumber extends NumberTriviaEvent {
   final String numberString;

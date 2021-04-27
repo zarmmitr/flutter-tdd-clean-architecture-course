@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart' show required;
-import 'package:z_/core/exceptions.dart' show ServerException;
+import 'package:z_/core/exception.dart' show ServerException;
 
 import 'nt_io.dart' show NumberTriviaModel;
 

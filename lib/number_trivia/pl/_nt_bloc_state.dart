@@ -1,12 +1,11 @@
+import 'package:z_/core/part.dart' show NoProps;
+
 import '../api/nt.dart' show NumberTrivia;
 import 'package:equatable/equatable.dart' show Equatable;
 import 'package:meta/meta.dart' show immutable, required;
 
 @immutable
-abstract class NumberTriviaState extends Equatable {
-  @override
-  List<Object> get props => [];
-}
+abstract class NumberTriviaState extends Equatable with NoProps {}
 
 class Empty extends NumberTriviaState {}
 

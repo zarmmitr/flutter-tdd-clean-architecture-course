@@ -9,8 +9,8 @@ import 'package:z_/number_trivia/io/nt_local_source.dart' show NumberTriviaLocal
 import 'package:z_/number_trivia/io/nt_remote_source.dart' show NumberTriviaRemoteDataSource, NumberTriviaRemoteDataSourceImpl;
 import 'package:z_/number_trivia/io/nt_store.dart' show NumberTriviaStoreImpl;
 import 'package:z_/number_trivia/api/nt.dart' show NumberTriviaStore;
-import 'package:z_/number_trivia/uc/get_concrete_number_trivia.dart' show GetConcreteNumberTrivia;
-import 'package:z_/number_trivia/uc/get_random_number_trivia.dart' show GetRandomNumberTrivia;
+import 'package:z_/number_trivia/act/get_concrete_number_trivia.dart' show GetConcreteNumberTrivia;
+import 'package:z_/number_trivia/act/get_random_number_trivia.dart' show GetRandomNumberTrivia;
 import 'package:z_/number_trivia/pl/nt_pl.dart' show NumberTriviaBloc;
 
 final sl = GetIt.instance; // TODO sl -> serviceLocator

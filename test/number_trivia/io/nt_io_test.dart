@@ -10,12 +10,11 @@ void main() {
   final tNumberTriviaModel = NumberTriviaModel(number: 1, text: 'Test Text');
 
   test('should be a subclass of NumberTrivia entity',
-    () async => expect(tNumberTriviaModel, isA<NumberTrivia>())
-  );
+      () async => expect(tNumberTriviaModel, isA<NumberTrivia>()));
 
   testFunction(tNumberTriviaModel);
 
-  group('toJson', () {
+  group(tNumberTriviaModel.toJson, () {
     test(
       'should return a JSON map containing the proper data',
       () async {
@@ -46,7 +45,7 @@ void testFunction(NumberTriviaModel tNumberTriviaModel) {
         expect(result, tNumberTriviaModel);
       },
     );
-  
+
     test(
       'should return a valid model when the JSON number is regarded as a double',
       () async {
