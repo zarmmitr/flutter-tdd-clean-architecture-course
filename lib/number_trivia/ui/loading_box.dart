@@ -2,7 +2,7 @@ import 'package:flutter/material.dart' show BuildContext, Center, CircularProgre
 
 class LoadingBox extends StatelessWidget {
   const LoadingBox({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

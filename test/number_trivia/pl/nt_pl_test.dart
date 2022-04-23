@@ -16,10 +16,10 @@ class MockGetRandomNumberTrivia extends Mock implements GetRandomNumberTrivia {}
 class MockInputConverter extends Mock implements InputConverter {}
 
 void main() {
-  NumberTriviaBloc bloc;
-  MockGetConcreteNumberTrivia mockGetConcreteNumberTrivia;
-  MockGetRandomNumberTrivia mockGetRandomNumberTrivia;
-  MockInputConverter mockInputConverter;
+  late NumberTriviaBloc bloc;
+  late MockGetConcreteNumberTrivia mockGetConcreteNumberTrivia;
+  late MockGetRandomNumberTrivia mockGetRandomNumberTrivia;
+  late MockInputConverter mockInputConverter;
 
   setUp(() {
     mockGetConcreteNumberTrivia = MockGetConcreteNumberTrivia();
@@ -44,7 +44,7 @@ void main() {
     final tNumberTrivia = NumberTrivia(number: 1, text: 'test trivia');
 
     void setUpMockInputConverterSuccess() =>
-        when(mockInputConverter.stringToUnsignedInteger(any))
+        when(mockInputConverter.stringToUnsignedInteger('any'))
             .thenReturn(Right(tNumberParsed));
 
     test(
@@ -54,7 +54,7 @@ void main() {
         setUpMockInputConverterSuccess();
         // act
         bloc.add(GetTriviaForConcreteNumber(tNumberString));
-        await untilCalled(mockInputConverter.stringToUnsignedInteger(any));
+        await untilCalled(mockInputConverter.stringToUnsignedInteger('any'));
         // assert
         verify(mockInputConverter.stringToUnsignedInteger(tNumberString));
       },
@@ -64,7 +64,7 @@ void main() {
       'should emit [Error] when the input is invalid',
       () async {
         // arrange
-        when(mockInputConverter.stringToUnsignedInteger(any))
+        when(mockInputConverter.stringToUnsignedInteger('any'))
             .thenReturn(Left(FormatException()));
         // assert later
         final expected = [
@@ -82,11 +82,11 @@ void main() {
       () async {
         // arrange
         setUpMockInputConverterSuccess();
-        when(mockGetConcreteNumberTrivia(any))
+        when(mockGetConcreteNumberTrivia(0))
             .thenAnswer((_) async => Right(tNumberTrivia));
         // act
         bloc.add(GetTriviaForConcreteNumber(tNumberString));
-        await untilCalled(mockGetConcreteNumberTrivia(any));
+        await untilCalled(mockGetConcreteNumberTrivia(0));
         // assert
         verify(mockGetConcreteNumberTrivia(tNumberParsed));
       },
@@ -97,7 +97,7 @@ void main() {
       () async {
         // arrange
         setUpMockInputConverterSuccess();
-        when(mockGetConcreteNumberTrivia(any))
+        when(mockGetConcreteNumberTrivia(0))
             .thenAnswer((_) async => Right(tNumberTrivia));
         // assert later
         final expected = [
@@ -116,7 +116,7 @@ void main() {
       () async {
         // arrange
         setUpMockInputConverterSuccess();
-        when(mockGetConcreteNumberTrivia(any))
+        when(mockGetConcreteNumberTrivia(0))
             .thenAnswer((_) async => Left(ServerException()));
         // assert later
         final expected = [

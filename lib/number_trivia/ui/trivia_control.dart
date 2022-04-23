@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart' show BlocProvider;
 
 class TriviaControl extends StatefulWidget {
   const TriviaControl({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -13,7 +13,7 @@ class TriviaControl extends StatefulWidget {
 
 class _TriviaControlState extends State<TriviaControl> {
   final controller = TextEditingController();
-  String inputStr;
+  String inputStr = '';
 
   @override
   Widget build(BuildContext context) {

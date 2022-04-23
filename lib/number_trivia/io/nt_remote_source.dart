@@ -10,7 +10,7 @@ abstract class NumberTriviaRemoteDataSource {
   /// Calls the http://numbersapi.com/{number} endpoint.
   ///
   /// Throws a [ServerException] for all error codes.
-  Future<NumberTriviaModel> getConcreteNumberTrivia(int number);
+  Future<NumberTriviaModel> getConcreteNumberTrivia(int? number);
 
   /// Calls the http://numbersapi.com/random endpoint.
   ///
@@ -21,10 +21,10 @@ abstract class NumberTriviaRemoteDataSource {
 class NumberTriviaRemoteDataSourceImpl implements NumberTriviaRemoteDataSource {
   final http.Client client;
 
-  NumberTriviaRemoteDataSourceImpl({@required this.client});
+  NumberTriviaRemoteDataSourceImpl({required this.client});
 
   @override
-  Future<NumberTriviaModel> getConcreteNumberTrivia(int number) =>
+  Future<NumberTriviaModel> getConcreteNumberTrivia(int? number) =>
       _getTriviaFromUrl('http://numbersapi.com/$number');
 
   @override

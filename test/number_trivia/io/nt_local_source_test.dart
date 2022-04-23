@@ -13,8 +13,8 @@ import '../../fixture/fixture_reader.dart';
 class MockSharedPreferences extends Mock implements SharedPreferences {}
 
 void main() {
-  NumberTriviaLocalDataSourceImpl dataSource;
-  MockSharedPreferences mockSharedPreferences;
+  late NumberTriviaLocalDataSourceImpl dataSource;
+  late MockSharedPreferences mockSharedPreferences;
 
   setUp(() {
     mockSharedPreferences = MockSharedPreferences();
@@ -45,7 +45,7 @@ void main() {
       'should throw a CacheExeption when there is not a cached value',
       () async {
         // arrange
-        when(mockSharedPreferences.getString(any)).thenReturn(null);
+        when(mockSharedPreferences.getString(any)).thenReturn('');
         // act
         final call = dataSource.getLastNumberTrivia;
         // assert

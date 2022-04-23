@@ -8,8 +8,8 @@ class MockNumberTriviaRepository extends Mock
     implements NumberTriviaStore {}
 
 void main() {
-  GetRandomNumberTrivia usecase;
-  MockNumberTriviaRepository mockNumberTriviaRepository;
+  late GetRandomNumberTrivia usecase;
+  late MockNumberTriviaRepository mockNumberTriviaRepository;
 
   setUp(() {
     mockNumberTriviaRepository = MockNumberTriviaRepository();

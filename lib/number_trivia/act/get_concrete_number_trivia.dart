@@ -9,7 +9,7 @@ class GetConcreteNumberTrivia implements Act<NumberTrivia, int> {
   GetConcreteNumberTrivia(this.store);
 
   @override
-  Future<Either<Exception, NumberTrivia>> call(int number) async {
+  Future<Either<Exception, NumberTrivia>> call(int? number) async {
     return await store.getConcreteNumberTrivia(number);
   }
 }

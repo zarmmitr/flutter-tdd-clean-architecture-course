@@ -7,8 +7,8 @@ class NumberTrivia extends Equatable {
   final int number;
 
   NumberTrivia({
-    @required this.text,
-    @required this.number,
+    required this.text,
+    required this.number,
   });
 
   @override
@@ -16,6 +16,6 @@ class NumberTrivia extends Equatable {
 }
 
 abstract class NumberTriviaStore {
-  Future<Either<Exception, NumberTrivia>> getConcreteNumberTrivia(int number);
+  Future<Either<Exception, NumberTrivia>> getConcreteNumberTrivia(int? number);
   Future<Either<Exception, NumberTrivia>> getRandomNumberTrivia();
 }

@@ -4,7 +4,7 @@ description: TDD Clean Architecture for Flutter
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.6.0 <3.0.0'
+  sdk: '>=2.13.0 <3.0.0'
 
 dependencies:
   flutter:
@@ -16,7 +16,7 @@ dependencies:
   # Value equality
   equatable: ^1.0.1
   # Functional programming thingies
-  dartz: ^0.8.9
+  dartz: ^0.10.0-nullsafety.2
   # Remote API
   data_connection_checker: ^0.3.4
   http: ^0.12.0+3
@@ -26,7 +26,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  mockito: ^4.1.1
+  mockito: ^5.0.9
 
 flutter:
   uses-material-design: true

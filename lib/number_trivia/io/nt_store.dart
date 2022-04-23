@@ -2,13 +2,14 @@ import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
 
 import 'package:z_/core/exception.dart' show CacheException, ServerException;
+import 'package:z_/number_trivia/io/nt_io.dart';
 import 'package:z_/util/network.dart' show Network;
 import '../api/nt.dart' show NumberTrivia;
 import '../api/nt.dart' show NumberTriviaStore;
 import 'nt_local_source.dart' show NumberTriviaLocalSource;
 import 'nt_remote_source.dart' show NumberTriviaRemoteDataSource;
 
-typedef Future<NumberTrivia> _ConcreteOrRandomChooser();
+typedef Future<NumberTriviaModel> _ConcreteOrRandomChooser();
 
 class NumberTriviaStoreImpl implements NumberTriviaStore {
   final NumberTriviaRemoteDataSource remoteDataSource;
@@ -16,14 +17,14 @@ class NumberTriviaStoreImpl implements NumberTriviaStore {
   final Network network;
 
   NumberTriviaStoreImpl({
-    @required this.remoteDataSource,
-    @required this.localDataSource,
-    @required this.network,
+    required this.remoteDataSource,
+    required this.localDataSource,
+    required this.network,
   });
 
   @override
   Future<Either<Exception, NumberTrivia>> getConcreteNumberTrivia(
-    int number,
+    int? number,
   ) async {
     return await _getTrivia(() {
       return remoteDataSource.getConcreteNumberTrivia(number);
@@ -42,7 +43,7 @@ class NumberTriviaStoreImpl implements NumberTriviaStore {
   ) async {
     if (await network.isConnected) {
       try {
-        final remoteTrivia = await getConcreteOrRandom();
+        final NumberTriviaModel remoteTrivia = await getConcreteOrRandom();
         localDataSource.cacheNumberTrivia(remoteTrivia);
         return Right(remoteTrivia);
       } on ServerException catch (e) {
